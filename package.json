@@ -1,6 +1,6 @@
 {
   "name": "react-list-keys",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A Natural Solution for React list Keys",
   "main": "index.js",
   "scripts": {
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/chrants/react-key-gen.git"
+    "url": "git+https://github.com/chrants/react-list-keys.git"
   },
   "keywords": [
     "react",
@@ -18,7 +18,7 @@
   "author": "Christian Tschoepe <tschoepe.christian@gmail.com> (https://chrants.github.io)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/chrants/react-key-gen/issues"
+    "url": "https://github.com/chrants/react-list-keys/issues"
   },
-  "homepage": "https://github.com/chrants/react-key-gen#readme"
+  "homepage": "https://github.com/chrants/react-list-keys#readme"
 }
