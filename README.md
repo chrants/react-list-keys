@@ -1,4 +1,7 @@
 # react-list-keys
+
+!["Build Status"](https://travis-ci.org/chrants/react-list-keys.svg?branch=master "Build status")
+
 Predictable, Natural Solution for unique React list Keys
 
 ```bash
