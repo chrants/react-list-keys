@@ -32,8 +32,10 @@ class MyComponent extends React.Component {
   }
 
   render() {
-    this.addItem({ title: 'apple' });
-    this.addItem({ title: 'banana' });
+    if (this.state.items.length === 0) {
+      this.addItem({ title: 'apple' });
+      this.addItem({ title: 'banana' });
+    }
 
     return (
       <ul>
