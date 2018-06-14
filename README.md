@@ -4,6 +4,10 @@
 
 Predictable, Natural Solution for unique React list Keys
 
+For certain cases where there is no natural key for an item in a list it can be frustrating to create an artificial key for it. 
+For example, if something hasn't been saved to the server yet and so has no ID, a unique artificial key for each item would have to be created to appease React's list rendering.
+`react-list-keys` solves this problem by doing key generation for you.
+
 ```bash
 npm install react-list-keys
 ```
