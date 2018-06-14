@@ -20,5 +20,12 @@
   "bugs": {
     "url": "https://github.com/chrants/react-list-keys/issues"
   },
-  "homepage": "https://github.com/chrants/react-list-keys#readme"
+  "homepage": "https://github.com/chrants/react-list-keys#readme",
+  "jest": {
+    "verbose": true,
+    "collectCoverage": true
+  },
+  "devDependencies": {
+    "jest": "^23.1.0"
+  }
 }
