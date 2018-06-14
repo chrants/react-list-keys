@@ -1,0 +1,23 @@
+{
+  "name": "react-key-gen",
+  "version": "0.1.0",
+  "description": "A Natural Solution for React list Keys",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chrants/react-key-gen.git"
+  },
+  "keywords": [
+    "react",
+    "keys"
+  ],
+  "author": "Christian Tschoepe <tschoepe.christian@gmail.com> (https://chrants.github.io)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/chrants/react-key-gen/issues"
+  },
+  "homepage": "https://github.com/chrants/react-key-gen#readme"
+}
