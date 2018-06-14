@@ -1,5 +1,5 @@
 # react-key-gen
-Predictable, Natural Solution for React list Keys
+Predictable, Natural Solution for unique React list Keys
 
 ```bash
 npm install react-key-gen
@@ -64,3 +64,5 @@ const c = keyGen.copy(a);
 c._key // 1
 c === a // false
 ```
+
+If your object already has some sort of unique value that could be used as a key for react, it is prefered to use that one. This library's intention is to supplement items without natural keys.
