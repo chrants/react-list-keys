@@ -14,7 +14,7 @@ export default class ReactKeyGen {
      * Note that `{ ...item }._key` is `undefined`.
      * For copying items with keys, use `@copyItem`.
      */
-    keyedItem = (item) => {
+    keyed = (item) => {
       // If item has a `_key`, it's good to go
       if (item._key) {
         return item;
@@ -32,7 +32,7 @@ export default class ReactKeyGen {
     /**
      * Shallow copy an item with its unenumerable key.
      */
-    copyItem = (item) => {
+    copy = (item) => {
       const newItem = { ...item };
       Object.defineProperty(item, '_key', {
         value: item._key,
