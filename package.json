@@ -1,5 +1,5 @@
 {
-  "name": "react-key-gen",
+  "name": "react-list-keys",
   "version": "0.1.0",
   "description": "A Natural Solution for React list Keys",
   "main": "index.js",
@@ -12,7 +12,8 @@
   },
   "keywords": [
     "react",
-    "keys"
+    "keys",
+    "list"
   ],
   "author": "Christian Tschoepe <tschoepe.christian@gmail.com> (https://chrants.github.io)",
   "license": "MIT",

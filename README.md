@@ -1,13 +1,13 @@
-# react-key-gen
+# react-list-keys
 Predictable, Natural Solution for unique React list Keys
 
 ```bash
-npm install react-key-gen
+npm install react-list-keys
 ```
 
 ```node
 import React from 'react';
-import ReactKeyGen from 'react-key-gen';
+import ReactKeyGen from 'react-list-keys';
 
 class MyComponent extends React.Component {
   state = {
@@ -40,7 +40,7 @@ class MyComponent extends React.Component {
 ```
 
 ## How it works
-`react-key-gen` adds an unenumerable prop `_key` to your objects.
+`react-list-keys` adds an unenumerable prop `_key` to your objects.
 This means that submitting this object via fetch, destructuring the object,
 etc will not show the `_key` prop, yet it is there.
 
