@@ -7,20 +7,17 @@
  * of objects over time and over property changes.
  */
 module.exports =
-class ReactKeyGen {
-    
-  constructor() {
-    this.keyNo = 1;
-  }
+function ReactKeyGen() {
+  this.keyNo = 1;
 
   /**
    * Generate a `_key` property on `item`
    * that can be used for React element list keys.
    *
    * Note that `{ ...item }._key` is `undefined`.
-   * For copying items with keys, use `@copyItem`.
+   * For copying items with keys, use `@copy`.
    */
-  keyed(item) {
+  this.keyed = function(item) {
     // If item has a `_key`, it's good to go
     if (item._key) {
       return item;
@@ -33,18 +30,18 @@ class ReactKeyGen {
     });
     this.keyNo += 1;
     return item;
-  };
+  }
 
   /**
    * Shallow copy an item with its unenumerable key.
    */
-  copy(item) {
+  this.copy = function(item) {
     const newItem = { ...item };
     Object.defineProperty(newItem, '_key', {
       value: item._key,
       enumerable: false,
     });
     return newItem;
-  };
+  }
 }
   

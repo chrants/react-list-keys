@@ -42,6 +42,15 @@ describe('ReactKeyGen', () => {
     expect(c).not.toHaveProperty('_key');
   });
 
+  it('Does not add or modify a `_key` prop on an object with a `_key` prop', () => {
+    const keyGen = new ReactKeyGen();
+    const a = keyGen.keyed({ apples: 1, oranges: 'are great', bananas: null });
+    expect(a).toHaveProperty('_key');
+    
+    const aKey = a._key;
+    expect(keyGen.keyed(a)).toHaveProperty('_key', aKey);
+  });
+
   it('Shallow copies an item with its key with `.copy(item)`', () => {
     const keyGen = new ReactKeyGen();
     const a = keyGen.keyed({ apples: 1, oranges: 'are great', bananas: null });
