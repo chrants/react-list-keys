@@ -23,12 +23,12 @@ class MyComponent extends React.Component {
   }
 
   addItem = (item) => {
-    this.setState({
+    this.setState(state => ({
       items: [
-        ...this.state.items,
-        this.state.keyGen.keyed(item),
+        ...state.items,
+        state.keyGen.keyed(item),
       ]
-    });
+    }));
   }
 
   render() {
