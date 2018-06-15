@@ -1,5 +1,12 @@
 # react-list-keys
+
+!["Build Status"](https://travis-ci.org/chrants/react-list-keys.svg?branch=master "Build status")
+
 Predictable, Natural Solution for unique React list Keys
+
+For certain cases where there is no natural key for an item in a list it can be frustrating to create an artificial key for it. 
+For example, if something hasn't been saved to the server yet and so has no ID, a unique artificial key for each item would have to be created to appease React's list rendering.
+`react-list-keys` solves this problem by doing key generation for you.
 
 ```bash
 npm install react-list-keys
@@ -25,8 +32,10 @@ class MyComponent extends React.Component {
   }
 
   render() {
-    this.addItem({ title: 'apple' });
-    this.addItem({ title: 'banana' });
+    if (this.state.items.length === 0) {
+      this.addItem({ title: 'apple' });
+      this.addItem({ title: 'banana' });
+    }
 
     return (
       <ul>
