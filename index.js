@@ -36,7 +36,7 @@ function ReactKeyGen() {
    * Shallow copy an item with its unenumerable key.
    */
   this.copy = function(item) {
-    const newItem = { ...item };
+    const newItem = Object.assign({}, item);
     Object.defineProperty(newItem, '_key', {
       value: item._key,
       enumerable: false,
