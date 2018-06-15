@@ -22,6 +22,11 @@ class MyComponent extends React.Component {
     keyGen: new ReactKeyGen(),
   }
 
+  componentWillMount() {
+    this.addItem({ title: 'apple' });
+    this.addItem({ title: 'banana' });
+  }
+
   addItem = (item) => {
     this.setState(state => ({
       items: [
@@ -32,11 +37,6 @@ class MyComponent extends React.Component {
   }
 
   render() {
-    if (this.state.items.length === 0) {
-      this.addItem({ title: 'apple' });
-      this.addItem({ title: 'banana' });
-    }
-
     return (
       <ul>
         {this.state.items.map(item => (
