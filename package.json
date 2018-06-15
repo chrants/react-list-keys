@@ -1,6 +1,6 @@
 {
   "name": "react-list-keys",
-  "version": "0.1.1",
+  "version": "1.0.0",
   "description": "A Natural Solution for React list Keys",
   "main": "index.js",
   "scripts": {
