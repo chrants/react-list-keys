@@ -6,7 +6,6 @@
  * naturally solve React Key errors as well as for identity
  * of objects over time and over property changes.
  */
-module.exports =
 function ReactKeyGen() {
   this.keyNo = 1;
 
@@ -44,4 +43,7 @@ function ReactKeyGen() {
     return newItem;
   }
 }
-  
+/** Export a default keyGen to be used if a new instance is not needed */
+ReactKeyGen.keyGen = new ReactKeyGen();
+
+module.exports = ReactKeyGen;

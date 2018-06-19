@@ -1,4 +1,5 @@
 const ReactKeyGen = require('./index');
+const keyGen = ReactKeyGen.keyGen;
 
 describe('ReactKeyGen', () => {
   it('Creates a new instance of the key generator', () => {
@@ -15,7 +16,7 @@ describe('ReactKeyGen', () => {
   it('Adds a `_key` prop on an object with `.keyed(item)` that is unique', () => {
     const keyGen = new ReactKeyGen();
     const items = [];
-    for (let i = 0; i < 500; i++) {
+    for (let i = 0; i < 200; i++) {
       items.push(keyGen.keyed({}));
     }
     
@@ -61,5 +62,31 @@ describe('ReactKeyGen', () => {
     expect(copy._key).toEqual(a._key);
     expect(copy).toEqual(a);
     expect(copy).not.toBe(a);
+  });
+
+  it('Exports a keygen called `keyGen` that behaves like a new instance', () => {
+    const a = keyGen.keyed({ apples: 1, grapes: 'like penguins' });
+    expect(a).toHaveProperty('_key');
+
+    const b = { ...a };
+    expect(b).not.toHaveProperty('_key');
+
+    const c = Object.assign({}, a);
+    expect(c).not.toHaveProperty('_key');
+
+    const items = [];
+    for (let i = 0; i < 200; i++) {
+      items.push(keyGen.keyed({}));
+    }
+    
+    items.forEach((item, idx) => {
+      items.forEach((item2, idx2) => {
+        if (idx === idx2) {
+          return;
+        }
+
+        expect(item._key).not.toEqual(item2._key);
+      });
+    });
   });
 });
