@@ -12,7 +12,7 @@ For example, if something hasn't been saved to the server yet and so has no ID, 
 npm install react-list-keys
 ```
 
-```node
+```jsx
 import React from 'react';
 import ReactKeyGen from 'react-list-keys';
 
@@ -49,13 +49,14 @@ class MyComponent extends React.Component {
 ```
 
 ## How it works
+
 `react-list-keys` adds an unenumerable prop `_key` to your objects.
 This means that submitting this object via fetch, destructuring the object,
 etc will not show the `_key` prop, yet it is there.
 
 *Example:*
 
-```node
+```javascript
 const keyGen = new ReactKeyGen();
 const a = keyGen.keyed({ apples: 1, oranges: 'are great', bananas: null });
 a._key // 1
@@ -68,7 +69,7 @@ While this might seem like a weakness, it's actually very important so that it d
 
 If you would like to do this object shallow copying, you can do it simply with the provided utility function. In the example above, this would be:
 
-```node
+```javascript
 const c = keyGen.copy(a);
 c._key // 1
 c === a // false
