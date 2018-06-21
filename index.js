@@ -7,7 +7,7 @@
  * of objects over time and over property changes.
  */
 function ReactKeyGen() {
-  this.keyNo = 1;
+  let keyNo = 1;
 
   /**
    * Generate a `_key` property on `item`
@@ -24,10 +24,10 @@ function ReactKeyGen() {
 
     // Generate a unique `_key` prop that cannot be enumerated.
     Object.defineProperty(item, '_key', {
-      value: this.keyNo,
+      value: keyNo,
       enumerable: false,
     });
-    this.keyNo += 1;
+    keyNo += 1;
     return item;
   }
 

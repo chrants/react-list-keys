@@ -64,6 +64,11 @@ describe('ReactKeyGen', () => {
     expect(copy).not.toBe(a);
   });
 
+  it('Does not have a public property `keyNo`.', () => {
+    const keyGen = new ReactKeyGen();
+    expect(keyGen.keyNo).toBe(undefined);
+  });
+
   it('Exports a keygen called `keyGen` that behaves like a new instance', () => {
     const a = keyGen.keyed({ apples: 1, grapes: 'like penguins' });
     expect(a).toHaveProperty('_key');
