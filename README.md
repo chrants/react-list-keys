@@ -4,6 +4,10 @@
 
 🗝 Predictable, Natural Solution for unique React list keys 🔑
 
+This project was promoted in 
+*[Why you should love React list keys, and how to crush them](https://medium.com/@tschoepe.christian/why-you-should-love-react-list-keys-and-how-to-crush-them-b61fe90ca3ed)*,
+a companion article on Medium.
+
 For certain cases where there is no natural key for an item in a list it
 can be frustrating to create an artificial key for it.
 For example, if something hasn't been saved to the server yet and so has
