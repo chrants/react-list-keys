@@ -112,7 +112,9 @@ class ListComponent extends React.Component {
 
   // ...
 }
+```
 
+```jsx
 // Or you can use the exported keyGen, which is simply an instance of ReactKeyGen for
 // zero-configuration key generation.
 import { keyGen } from 'react-list-keys';
