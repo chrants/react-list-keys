@@ -4,8 +4,11 @@
 
 🗝 Predictable, Natural Solution for unique React list keys 🔑
 
-For certain cases where there is no natural key for an item in a list it can be frustrating to create an artificial key for it.
-For example, if something hasn't been saved to the server yet and so has no ID, a unique artificial key for each item would have to be created to appease React's list rendering.
+For certain cases where there is no natural key for an item in a list it
+can be frustrating to create an artificial key for it.
+For example, if something hasn't been saved to the server yet and so has
+no ID, a unique artificial key for each item would have to be created to
+appease React's list rendering.
 `react-list-keys` solves this problem by doing key generation for you.
 
 ```bash
@@ -77,11 +80,63 @@ c._key // 1
 c === a // false
 ```
 
-**Note**: If your object already has some sort of unique value that could be used as a key
-for react, it is prefered to use that one. This library's intention is to supplement
-items without natural keys.
+**Note**: If your object already has some sort of unique value that could be used
+as a key for react, it is prefered to use that one. This library's intention is
+to supplement items without natural keys.
+
+## API
+
+`react-list-keys` exports both an `export default class ReactKeyGen` for multiple key generation
+instances for different types of data and a single instance `export keyGen` for zero-configuration
+key generation.
+
+```jsx
+// ReactKeyGen can be used to have several key generators for different types of data.
+import ReactKeyGen from 'react-list-keys';
+
+// For example on a component-by-component basis or say for a type of data in redux or mobx.
+class ListComponent extends React.Component {
+  state = {
+    items: [],
+    myKeyGen: new ReactKeyGen(),
+  }
+
+  addItem = (item) => {
+    this.setState(state => ({
+      items: [
+        ...state.items,
+        state.keyGen.keyed(item),
+      ]
+    }));
+  }
+
+  // ...
+}
+
+// Or you can use the exported keyGen, which is simply an instance of ReactKeyGen for
+// zero-configuration key generation.
+import { keyGen } from 'react-list-keys';
+
+class ListComponent2 extends React.Component {
+  state = {
+    items: [],
+  }
+
+  addItem = (item) => {
+    this.setState(state => ({
+      items: [
+        ...state.items,
+        keyGen.keyed(item),
+      ]
+    }));
+  }
+
+  // ...
+}
+
+```
 
 ## Contributing
 
-Submit an issue for any ideas, problems, or suggestions. Pull requests are very welcome in the
-spirit of open source!
+Submit an issue for any ideas, problems, or suggestions. Pull requests are very welcome
+in the spirit of open source!
