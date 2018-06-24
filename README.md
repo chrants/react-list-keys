@@ -42,7 +42,7 @@ class MyComponent extends React.Component {
     this.setState(state => ({
       items: [
         ...state.items,
-        state.keyGen.keyed(item),
+        state.keyGen.keyed(item), // item with a `_key`
       ]
     }));
   }
@@ -51,7 +51,7 @@ class MyComponent extends React.Component {
     return (
       <ul>
         {this.state.items.map(item => (
-          <li key={item._key}>{item.title}</li>
+          <li key={item._key}>{item.title}</li> // use the `_key` as a key
         ))}
       </ul>
     );
