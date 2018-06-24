@@ -15,6 +15,10 @@ no ID, a unique artificial key for each item would have to be created to
 appease React's list rendering.
 `react-list-keys` solves this problem by doing key generation for you.
 
+> **Note**: If your object already has some sort of unique value that could be used
+> as a key for React, it is prefered to use that one. This library's intention is
+> to supplement items without natural keys.
+
 ```bash
 npm install react-list-keys
 ```
@@ -57,13 +61,8 @@ class MyComponent extends React.Component {
 
 ## How it works
 
-> **Note**: If your object already has some sort of unique value that could be used
-> as a key for react, it is prefered to use that one. This library's intention is
-> to supplement items without natural keys.
-
-`react-list-keys` adds an unenumerable prop `_key` to your objects.
-This means that submitting this object via fetch, destructuring the object,
-etc will not show the `_key` prop, yet it is there.
+`react-list-keys` adds a `_key` property to your objects that can be used
+directly as a key in React lists.
 
 *Example:*
 
@@ -71,7 +70,13 @@ etc will not show the `_key` prop, yet it is there.
 const keyGen = new ReactKeyGen();
 const a = keyGen.keyed({ apples: 1, oranges: 'are great', bananas: null });
 a._key // 1
+```
 
+The `_key` property added to the object is *unenumerable*. This means that
+submitting this object via fetch, destructuring the object, etc will not show
+the `_key` prop, yet it is there.
+
+```javascript
 const b = { ...a }; // or Object.assign({}, a);
 b._key // undefined
 ```
@@ -109,7 +114,7 @@ class ListComponent extends React.Component {
     this.setState(state => ({
       items: [
         ...state.items,
-        state.keyGen.keyed(item),
+        state.keyGen.keyed(item), // item with a `_key`
       ]
     }));
   }
@@ -132,7 +137,7 @@ class ListComponent2 extends React.Component {
     this.setState(state => ({
       items: [
         ...state.items,
-        keyGen.keyed(item),
+        keyGen.keyed(item), // item with a `_key`
       ]
     }));
   }
