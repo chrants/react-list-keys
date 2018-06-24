@@ -57,6 +57,10 @@ class MyComponent extends React.Component {
 
 ## How it works
 
+> **Note**: If your object already has some sort of unique value that could be used
+> as a key for react, it is prefered to use that one. This library's intention is
+> to supplement items without natural keys.
+
 `react-list-keys` adds an unenumerable prop `_key` to your objects.
 This means that submitting this object via fetch, destructuring the object,
 etc will not show the `_key` prop, yet it is there.
@@ -83,10 +87,6 @@ const c = keyGen.copy(a);
 c._key // 1
 c === a // false
 ```
-
-**Note**: If your object already has some sort of unique value that could be used
-as a key for react, it is prefered to use that one. This library's intention is
-to supplement items without natural keys.
 
 ## API
 
